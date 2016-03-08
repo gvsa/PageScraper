@@ -1,4 +1,4 @@
-package org.automatics;
+package org.automatics.test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,7 +16,7 @@ public class TestOne {
 	
 	@Test
 	public void scenario() throws InterruptedException{
-		System.out.println("this is it");
+		System.out.println("parsing elements list from w3c...");
 		
 		WebDriver w = new FirefoxDriver();
 		
@@ -30,7 +30,7 @@ public class TestOne {
 			String elString = x.getText().trim().toLowerCase();
 			elementNames.add(elString);
 		}
-		elementNames=new ArrayList<String>(new HashSet(elementNames));
+		elementNames=new ArrayList<String>(new HashSet<String>(elementNames));
 //		System.out.println("after dupe-removal = " + elementNames.size());
 		List<WebElement> list = new ArrayList<WebElement>(); 
 		
@@ -39,10 +39,11 @@ public class TestOne {
 		//now build elementwise list and add to map
 		for(String tag:elementNames){
 			list = w.findElements(By.cssSelector(tag));
-			System.out.println("found " + list.size() + " for tag: " + tag);
+			System.out.println("found " + list.size() + " for tag: " + tag+" text follows next line.");
 			for(WebElement x:list){
-				System.out.println(x.getText());
+				System.out.print("||"+x.getText());
 			}
+			System.out.println();
 			elMap.put(tag, list);
 		}
 		System.out.println("done");

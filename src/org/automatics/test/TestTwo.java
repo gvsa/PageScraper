@@ -1,5 +1,6 @@
-package org.automatics;
+package org.automatics.test;
 
+import org.automatics.CreatePageClass;
 import org.junit.Test;
 
 public class TestTwo {

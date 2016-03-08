@@ -27,7 +27,7 @@ public class CreatePageClass {
 
 		File f = new File(ClassNameString + ".java");
 		FileOutputStream fout = new FileOutputStream(f);
-		fout.write("\npublic class Test {".getBytes());
+		fout.write(("\npublic class "+ClassNameString+" {").getBytes());
 		
 		String locatorCode = "";
 
@@ -35,7 +35,7 @@ public class CreatePageClass {
 		for (String x : tags) {
 			// now for each input type, iterate through each element
 			for (WebElement el : elMap.get(x)) {
-				// now for each element, check attibutes (name,id,class) and use
+				// now for each element, check attributes (name,id,class) and use
 				// the first non-blank
 				// else add element to blanks
 				locatorCode="";
